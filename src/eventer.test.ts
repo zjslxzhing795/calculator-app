@@ -1,39 +1,36 @@
-import expect from 'expect';
+import expect from "expect"
 
-import { Eventer } from './eventer';
+import { Eventer } from "./eventer"
 
-describe('Eventer', () => {
+describe("Eventer", () => {
+  const eventer = new Eventer<{ k1: number; k2: boolean }>()
 
-  const eventer = new Eventer<{ 'k1': number, 'k2': boolean }>;
+  it("should work", () => {
+    let k1v = 0
+    let k2v = false
 
-  it('should work', () => {
+    const offk1 = eventer.on("k1", (v) => (k1v = v))
+    const offk2 = eventer.on("k2", (v) => (k2v = v))
 
-    let k1v = 0;
-    let k2v = false;
+    expect(k1v).toBe(0)
+    expect(k2v).toBe(false)
 
-    const offk1 = eventer.on('k1', v => k1v = v);
-    const offk2 = eventer.on('k2', v => k2v = v);
+    eventer.emit("k1", 2)
+    expect(k1v).toBe(2)
+    expect(k2v).toBe(false)
 
-    expect(k1v).toBe(0);
-    expect(k2v).toBe(false);
+    eventer.emit("k2", true)
+    expect(k1v).toBe(2)
+    expect(k2v).toBe(true)
 
-    eventer.emit('k1', 2);
-    expect(k1v).toBe(2);
-    expect(k2v).toBe(false);
+    offk1()
+    eventer.emit("k1", 3)
+    expect(k1v).toBe(2)
+    expect(k2v).toBe(true)
 
-    eventer.emit('k2', true);
-    expect(k1v).toBe(2);
-    expect(k2v).toBe(true);
-
-    offk1();
-    eventer.emit('k1', 3);
-    expect(k1v).toBe(2);
-    expect(k2v).toBe(true);
-
-    offk2();
-    eventer.emit('k2', false);
-    expect(k1v).toBe(2);
-    expect(k2v).toBe(true);
-
-  });
-});
+    offk2()
+    eventer.emit("k2", false)
+    expect(k1v).toBe(2)
+    expect(k2v).toBe(true)
+  })
+})

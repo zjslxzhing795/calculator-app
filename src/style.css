@@ -1,5 +1,3 @@
-
-
 .screen {
   box-sizing: border-box;
   width: 395px;
@@ -44,8 +42,6 @@
   background-color: #eccc68;
 }
 
-
 .button.zero {
   width: 175px;
 }
-
