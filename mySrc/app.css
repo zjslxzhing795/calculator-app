@@ -1,0 +1,44 @@
+.app {
+  width: 280px;
+  height: 440px;
+  border: 1px solid rgba(239, 239, 239, 1);
+  padding: 80px 20px 20px 20px;
+  margin-left: 100px;
+  background-color: black;
+  border-radius: 36px;
+}
+.value {
+  font-size: 54px;
+  color: white;
+  overflow: hidden;
+  padding: 0 26px;
+}
+.value span {
+  float: right;
+}
+
+.panel .item {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  margin: 0 10px 10px 0;
+  font-size: 26px;
+  border: none;
+  background-color: darkgray;
+  color: white;
+}
+
+.panel .zero {
+  width: 130px;
+  text-align: left;
+  padding-left: 24px;
+}
+
+.panel .yellow {
+  background-color: orange;
+}
+
+.panel .grey {
+  background-color: lightgray;
+  color: black;
+}

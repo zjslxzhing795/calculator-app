@@ -4,6 +4,6 @@
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "mySrc/**/*"],
   "exclude": ["node_modules/*"]
 }

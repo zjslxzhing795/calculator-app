@@ -4,7 +4,7 @@ const DefinePlugin = require("webpack/lib/DefinePlugin")
 
 module.exports = {
   mode: "none",
-  entry: "./src/index.ts",
+  entry: "./mySrc/index.ts",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "calculator-app.bundle.js",
