@@ -4,6 +4,6 @@
     "jsx": "preserve",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/**/*", "mySrc/**/*"],
+  "include": ["src/**/*", "mySrc/**/*", "myCopy/**/*"],
   "exclude": ["node_modules/*"]
 }
