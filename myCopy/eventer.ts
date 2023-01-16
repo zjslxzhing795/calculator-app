@@ -9,9 +9,14 @@ export class Eventer<Events extends Record<string, any>> {
       fns[k] = []
     }
     fns[k].push(fn)
-    // return () => this.off(k, fn)
+    return () => this.off(k, fn)
   }
-  //   off() {}
+  off<Key extends keyof Events>(k: Key, fn: (v: Events[Key]) => void) {
+    const { fns } = this
+    if (fns[k] !== undefined) {
+      fns[k] = undefined
+    }
+  }
   emit<Key extends keyof Events>(k: Key, v: Events[Key]) {
     const { fns } = this
     if (fns[k] !== undefined) {
